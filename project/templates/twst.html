@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <form method="post">
+            <select name="sel_value">
+                {% for youbike in youbikes %}
+                      <option name ="search_button" value="{{ youbike.area }}">{{ youbike }}</option>    
+                {% endfor %}
+            </select>
+        </form>
+       
+   
+        <p>{{ search }}</p>    
+ 
+    </body>
+</html>
