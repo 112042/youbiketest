@@ -41,102 +41,54 @@ https://www.tooplate.com/view/2118-chilling-cafe
     </header>
 
     <div class="tm-container">
-      <!--<div class="tm-text-white tm-page-header-container">-->
-        <!--<i class="fas fa-mug-hot fa-2x tm-page-icon"></i> -->
-       <!-- <h1 class="tm-page-header">YouEat!</h1> -->
-     <!-- </div>-->
-      <div class="tm-main-content">
-        <div id="tm-intro-img"></div>
-        <!-- Coffee Menu -->  
-        <section class="tm-section">
-          <h2 class="tm-section-header">Location Districts</h2>
-          <div class="tm-responsive-table">
-            <table>
-            <div class="search">
-
-                  <div class="group"> 
-                    <!--<form class="navbar-form" method="get" action="/search_title/">
-                        <div class="form-group">
-                            <input name="title" type="text" placeholder="title" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success">search</button>
-                    </form>-->
-                    <form method="get" action="/search_title/">
-                      <select name="sel_value">
-                          {% for youbike in youbikes %}
-                                <option name="title" value="{{ youbike}}">{{ youbike }}</option>
-                          {% endfor %}  
-                      </select>
-                      <button type="submit" class="searchButton" >
-                        <i class="fa fa-search"><img class="search" src="loupe.png" alt=""></i>
-                        {% csrf_token %}
-                      </button>
-                  </form>
-                  </div>
-                  
-                   
-             </div>
-                
-            </table>  
-            </div>
-           
-            <table>
-              <tr class="tm-tr-header">
-                
-                <th style="text-align:center;">Station Name</th>
-                <th style="text-align:center;">Station Business</th>
-                <th style="text-align:center;">Station Available Parking</th>
-                <th style="text-align:center;">Station Returnable parking space</th>
-                <th style="text-align:center;">Station Address</th>
-              </tr>
-
-              {% for youbike in youbike_availability %}
-              <tr>
-                
-                <td >{{ youbike.name }}</td> 
-                <td >{{ youbike.operation }}</td> 
-                <td >{{ youbike.parking }}</td> 
-                <td >{{ youbike.free }}</td> 
-                <td >{{ youbike.address }}</td> 
-              </tr>
-              {% endfor %}
-              
-              
-            </table>
-            
+        <div class="tm-text-white tm-page-header-container">
+          
           </div>
-        </section>
-
-        
-
-        <!-- Special Items -->
-       <!--<section class="tm-section">
-          <h2 class="tm-section-header">Special Items</h2>
-          <div class="tm-special-items">
-            <figure class="tm-special-item">
-              <img src="{% static 'img/chilling-cafe-11.jpg' %}" alt="Image" class="tm-special-item-img" />
-              <figcaption>
-                <span class="tm-item-name">Soft Deli Cup</span>
-                <span class="tm-item-price">$25</span>
-              </figcaption>
-            </figure>
-            <figure class="tm-special-item">
-              <img src="{% static 'img/chilling-cafe-12.jpg' %}" alt="Image" class="tm-special-item-img" />
-              <figcaption>
-                <span class="tm-item-name">Coffee Art</span>
-                <span class="tm-item-price">$30</span>
-              </figcaption>
-            </figure>
-            <figure class="tm-special-item">
-              <img src="{% static 'img/chilling-cafe-13.jpg' %}" alt="Image" class="tm-special-item-img" />
-              <figcaption>
-                <span class="tm-item-name">Speciality Tea</span>
-                <span class="tm-item-price">$35</span>
-              </figcaption>
-            </figure>
-          </div>
-        </section> -->
-        <hr />
+          <div class="tm-main-content">
+            <div id="tm-intro-img"></div>
+            <div class="group"> 
+                <form method="get" action="/search_title/">
+                  <select name="sel_value">
+                      {% for youbike in youbikes %}
+                            <option name="title" value="{{ youbike}}">{{ youbike }}</option>
+                      {% endfor %}  
+                  </select>
+                  <button type="submit" class="searchButton" >
+                    <i class="fa fa-search"><img class="search" src="loupe.png" alt=""></i>
+                    {% csrf_token %}
+                  </button>
+              </form>
+              </div>
+            <!-- Coffee Menu -->
+            <section class="tm-section">
+              <h2 class="tm-section-header">Coffee Menu</h2>
+              <div class="tm-responsive-table">
+                <table>
+                    <tr class="tm-tr-header">
+                      
+                      <th style="text-align:center;">Station Name</th>
+                      <th style="text-align:center;">Station Business</th>
+                      <th style="text-align:center;">Station Available Parking</th>
+                      <th style="text-align:center;">Station Returnable parking space</th>
+                      <th style="text-align:center;">Station Address</th>
+                    </tr>
+      
+                    {% for youbike in youbike_availability %}
+                    <tr>
+                      
+                      <td >{{ youbike.name }}</td> 
+                      <td >{{ youbike.operation }}</td> 
+                      <td >{{ youbike.parking }}</td> 
+                      <td >{{ youbike.free }}</td> 
+                      <td >{{ youbike.address }}</td> 
+                    </tr>
+                    {% endfor %}
+                    
+                    
+                  </table>
+              </div>
+            </section>
+                     
         <!-- About our cafe -->
         <section class="tm-section tm-section-small">
           <h2 class="tm-section-header">Explore by Youbike</h2>
