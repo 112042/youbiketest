@@ -40,58 +40,94 @@ https://www.tooplate.com/view/2118-chilling-cafe
       </nav>
     </header>
     <div class="tm-container">
-      <!--<div class="tm-text-white tm-page-header-container">-->
-        <!--<i class="fas fa-mug-hot fa-2x tm-page-icon"></i> -->
-       <!-- <h1 class="tm-page-header">YouEat!</h1> -->
-     <!-- </div>-->
-      <div class="tm-main-content">
-        <div id="tm-intro-img"></div>
-        <!-- Coffee Menu -->  
-        <section class="tm-section">
-          <h2 class="tm-section-header">Location R</h2>
-          <div class="tm-responsive-table">
-    
-            <div class="search">
-
-                  <div class="group"> 
+        <div class="tm-text-white tm-page-header-container">
+         <!-- <i class="fas fa-mug-hot fa-2x tm-page-icon"></i>
+          <h1 class="tm-page-header">Chilling Cafe</h1>-->
+        </div>
+        <div class="tm-main-content">
+          <div id="tm-intro-img"></div>
+          
+          <div class="group"> 
+            <table>
+            <form method="get" action="/restaurant_title/">
+                <select id="sel1" name="sel1" onchange="giveSelection(this.value)">
+                    {% for youbike in youbikes %}
+                    <option value="{{ youbike }}">{{ youbike }}</option>
+                    {% endfor %}
+                  </select>
+                  <select id="sel2" name="sel2">
                     
-                    <form method="post" action="">
-                      <select name="sel_value">
-                          {% for restaurant in restaurants %}
-                                <option value="{{ restaurant }}">{{ restaurant }}</option>
-                                
-                          {% endfor %}
-                      </select>
-                  </form>
-                  </div>
+                    {% for x in restaurants %}
+                    <option data-option="{{ x.d }}">
+                        {{ x.n }}
+                    </option>
+                    
+                    {% endfor %}
+                    
+                  </select>
                   <button type="submit" class="searchButton" >
                     <i class="fa fa-search"><img class="search" src="loupe.png" alt=""></i>
                     {% csrf_token %}
                   </button>
-                   
-             </div>
-            </div>
-           
-            <table>
-              <tr class="tm-tr-header">
-                
-                <th style="text-align:center;">Station Area</th>
-              </tr>
-
-              {% for youbike in youbikes %}
-              <tr>
-                
-                <td >{{ youbike.area }}</td> 
-              </tr>
-              {% endfor %}
-              
-              
-            </table>
+            </form>
             
+   
           </div>
-        </section>
-
-        <hr />
+          <!-- Coffee Menu -->
+          <section class="tm-section">
+            <h2 class="tm-section-header">Coffee Menu</h2>
+           
+            <h2 class="tm-section-header">Coffee Menu</h2>
+            <div class="tm-responsive-table">
+                <table>
+                    <tr class="tm-tr-header">
+                        <th style="text-align:center;">Restaurant Name</th>
+                        <th style="text-align:center;">Restaurant Address</th>
+                        <th style="text-align:center;">Restaurant Telephone</th>
+                        <th style="text-align:center;">Restaurant promotion</th>
+                        
+                      </tr>
+                      {% for youbike in rt %}
+                      <tr>
+                        <td >{{ youbike.n }}</td> 
+                        <td >{{ youbike.lo }}</td> 
+                        <td >{{ youbike.ph }}</td> 
+                        <td >{{ youbike.pro }}</td> 
+                      </tr>
+                      {% endfor %}
+    
+                </table>
+            </div>
+          </section>
+  
+          <!-- Tea Menu -->
+          <section class="tm-section">
+            <h2 class="tm-section-header">Tea Menu</h2>
+            <div class="tm-responsive-table">
+                <table>
+                    <tr class="tm-tr-header">
+                        <th style="text-align:center;">Station Name</th>
+                        <th style="text-align:center;">Station Business</th>
+                        <th style="text-align:center;">Station Available Parking</th>
+                        <th style="text-align:center;">Station Returnable parking space</th>
+                        <th style="text-align:center;">Station Address</th>
+                    </tr>
+                    {% for youbike in yt %}
+                    <tr>
+                   
+                    <td >{{ youbike.name }}</td> 
+                    <td >{{ youbike.operation}}</td> 
+                    <td >{{ youbike.parking }}</td> 
+                    <td >{{ youbike.free }}</td> 
+                    <td >{{ youbike.address }}</td> 
+                    
+                    
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+          </section>
+  
         <!-- About our cafe -->
         <section class="tm-section tm-section-small">
             <h2 class="tm-section-header">Explore by Youbike</h2>
@@ -142,7 +178,9 @@ https://www.tooplate.com/view/2118-chilling-cafe
           </p>
         </footer>
       </div>
+      <script src="{% static 'js/selector.js' %}"></script>  
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <!--<script src="{% static 'js/selector.js' %}"></script>-->
     <script>
       $(function() {
         // Adjust intro image height based on width.
