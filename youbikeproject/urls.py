@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+     path('admin/', admin.site.urls),
     path('', views.index),                #首頁        （home_page）
     path('Sbike/', views.Sbike),          #站點搜尋      (Station_search)
     path('Dbike/', views.Dbike),          #區域搜尋      (Districts_search)
@@ -29,5 +29,6 @@ urlpatterns = [
     path('PDbike/',views.PDbike),         #產品搜尋      (Production_search)
     path('search_title/', views.search_title),         #站名搜尋      (search_title)
     path('station_title/', views.station_title),         #產品搜尋      (Production_search)
+    path('restaurant_title/',views.restaurant_title)
 
 ]+ static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
