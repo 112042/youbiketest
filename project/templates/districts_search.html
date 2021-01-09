@@ -47,8 +47,9 @@ https://www.tooplate.com/view/2118-chilling-cafe
           <div class="tm-main-content">
             <div id="tm-intro-img"></div>
             <div class="group"> 
+                <h2>Chose your Youbike Area</h2>
                 <form method="get" action="/search_title/">
-                  <select name="sel_value">
+                  <select name="sel_value" >
                       {% for youbike in youbikes %}
                             <option name="title" value="{{ youbike}}">{{ youbike }}</option>
                       {% endfor %}  
@@ -61,24 +62,23 @@ https://www.tooplate.com/view/2118-chilling-cafe
               </div>
             <!-- Coffee Menu -->
             <section class="tm-section">
-              <h2 class="tm-section-header">Coffee Menu</h2>
+              <h2 class="tm-section-header">Youbike information in this area</h2>
+              <h2 class="tm-section-header">{{ ytitle }}</h2>
               <div class="tm-responsive-table">
                 <table>
                     <tr class="tm-tr-header">
-                      
                       <th style="text-align:center;">Station Name</th>
-                      <th style="text-align:center;">Station Business</th>
                       <th style="text-align:center;">Station Available Parking</th>
+                      <th style="text-align:center;">Station Available For Loan</th>
                       <th style="text-align:center;">Station Returnable parking space</th>
                       <th style="text-align:center;">Station Address</th>
                     </tr>
-      
+
                     {% for youbike in youbike_availability %}
                     <tr>
-                      
                       <td >{{ youbike.name }}</td> 
-                      <td >{{ youbike.operation }}</td> 
                       <td >{{ youbike.parking }}</td> 
+                      <td >{{ youbike.brrow }}</td> 
                       <td >{{ youbike.free }}</td> 
                       <td >{{ youbike.address }}</td> 
                     </tr>
