@@ -50,11 +50,13 @@ https://www.tooplate.com/view/2118-chilling-cafe
           <div class="group"> 
             <table>
             <form method="get" action="/restaurant_title/">
+                <h2>Choose the Area</h2>
                 <select id="sel1" name="sel1" onchange="giveSelection(this.value)">
                     {% for youbike in youbikes %}
                     <option value="{{ youbike }}">{{ youbike }}</option>
                     {% endfor %}
                   </select>
+                  <h2>Choose the Restaurant</h2>
                   <select id="sel2" name="sel2">
                     
                     {% for x in restaurants %}
@@ -65,6 +67,7 @@ https://www.tooplate.com/view/2118-chilling-cafe
                     {% endfor %}
                     
                   </select>
+                  <br>
                   <button type="submit" class="searchButton" >
                     <i class="fa fa-search"><img class="search" src="loupe.png" alt=""></i>
                     {% csrf_token %}
@@ -75,9 +78,10 @@ https://www.tooplate.com/view/2118-chilling-cafe
           </div>
           <!-- Coffee Menu -->
           <section class="tm-section">
-            <h2 class="tm-section-header">Coffee Menu</h2>
+            
            
-            <h2 class="tm-section-header">Coffee Menu</h2>
+            <h2 class="tm-section-header">Restaurant Information</h2>
+            <h2 class="tm-section-header">{{ rname }}</h2>
             <div class="tm-responsive-table">
                 <table>
                     <tr class="tm-tr-header">
@@ -102,13 +106,14 @@ https://www.tooplate.com/view/2118-chilling-cafe
   
           <!-- Tea Menu -->
           <section class="tm-section">
-            <h2 class="tm-section-header">Tea Menu</h2>
+            <h2 class="tm-section-header">Around Youbike Information</h2>
+            <h2 class="tm-section-header">{{ dis }}</h2>
             <div class="tm-responsive-table">
                 <table>
                     <tr class="tm-tr-header">
                         <th style="text-align:center;">Station Name</th>
-                        <th style="text-align:center;">Station Business</th>
                         <th style="text-align:center;">Station Available Parking</th>
+                        <th style="text-align:center;">Station Available For Loan</th>
                         <th style="text-align:center;">Station Returnable parking space</th>
                         <th style="text-align:center;">Station Address</th>
                     </tr>
@@ -116,8 +121,8 @@ https://www.tooplate.com/view/2118-chilling-cafe
                     <tr>
                    
                     <td >{{ youbike.name }}</td> 
-                    <td >{{ youbike.operation}}</td> 
                     <td >{{ youbike.parking }}</td> 
+                    <td >{{ youbike.brrow}}</td> 
                     <td >{{ youbike.free }}</td> 
                     <td >{{ youbike.address }}</td> 
                     
