@@ -46,7 +46,7 @@ https://www.tooplate.com/view/2118-chilling-cafe
           <div class="tm-main-content">
             <div id="tm-intro-img"></div>
             <div class="group"> 
-                    
+                <h2>Chose your Youbike Station</h2>
                 <!--<form method="post">-->
                     <form method="get" action="/station_title/">
                         <select name="sel_value">
@@ -65,7 +65,7 @@ https://www.tooplate.com/view/2118-chilling-cafe
             
             <!-- Coffee Menu -->
             <section class="tm-section">
-              <h2 class="tm-section-header">Coffee Menu</h2>
+              <h2 class="tm-section-header">Youbike Station Information</h2>
               <div class="tm-responsive-table">
                 <table>
                     <tr class="tm-tr-header">
@@ -73,8 +73,6 @@ https://www.tooplate.com/view/2118-chilling-cafe
                         <th style="text-align:center;">Station Name</th>
                         <th style="text-align:center;">Station Area</th>
                         <th style="text-align:center;">Station Business</th>
-                        <th style="text-align:center;">Station Available Parking</th>
-                        <th style="text-align:center;">Station Returnable parking space</th>
                         <th style="text-align:center;">Station Address</th>
                       </tr>
         
@@ -84,27 +82,48 @@ https://www.tooplate.com/view/2118-chilling-cafe
                         <td >{{ youbike.name }}</td> 
                         <td >{{ youbike.area}}</td> 
                         <td >{{ youbike.operation }}</td> 
-                        <td >{{ youbike.parking }}</td> 
-                        <td >{{ youbike.free }}</td> 
                         <td >{{ youbike.address }}</td> 
                       </tr>
                       {% endfor %}
-                      
-                  
-                  
                 </table>
               </div>
             </section>
+
+              <!-- Tea Menu -->
+          <section class="tm-section">
+            <h2 class="tm-section-header">Youbike Station Number of parking spaces</h2>
+            <div class="tm-responsive-table">
+                <table>
+                    <tr class="tm-tr-header">
+                    
+                        <th style="text-align:center;">Station Name</th>
+                        <th style="text-align:center;">Station Available Parking</th>
+                        <th style="text-align:center;">Station Available For Loan</th>
+                        <th style="text-align:center;">Station Returnable parking space</th>
+                      </tr>
+        
+                      {% for youbike in youbike_availability %}
+                      <tr>
+                        
+                        <td >{{ youbike.name }}</td> 
+                        <td >{{ youbike.brrow }}</td> 
+                        <td >{{ youbike.parking }}</td> 
+                        <td >{{ youbike.free }}</td> 
+                      </tr>
+                      {% endfor %}
+                </table>
+            </div>
+          </section>
         <hr />
         <!-- About our cafe -->
         <section class="tm-section tm-section-small">
             <h2 class="tm-section-header">Explore by Youbike</h2>
             <p>
-              Explore the city and find more delicious food~
+                Find the name of the station you need
             </p>
             <p class="tm-mb-0">
-               With Youbike in daily life, explore the surrounding cities and find delicious food.
-               Youbike is not just a means of transportation, but a starting point for exploration.
+                Find the name of the station you need, and automatically list the details of the station name for you.
+
             </p>
           </section>
           <hr />
