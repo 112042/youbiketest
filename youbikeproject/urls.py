@@ -22,13 +22,14 @@ from django.conf import settings
 
 urlpatterns = [
      path('admin/', admin.site.urls),
-    path('', views.index),                #首頁        （home_page）
-    path('Sbike/', views.Sbike),          #站點搜尋      (Station_search)
-    path('Dbike/', views.Dbike),          #區域搜尋      (Districts_search)
-    path('RSbike/', views.RSbike),  #餐廳搜尋      (Restaurant_search)
-    path('PDbike/',views.PDbike),         #產品搜尋      (Production_search)
+    path('', views.index),                      #首頁        （home_page）
+    path('Sbike/', views.Sbike),                #站點搜尋      (Station_search)
+    path('Dbike/', views.Dbike),                #區域搜尋      (Districts_search)
+    path('RSbike/', views.RSbike),              #餐廳搜尋      (Restaurant_search)
+    path('PDbike/',views.PDbike),               #產品搜尋      (Production_search)
     path('search_title/', views.search_title),         #站名搜尋      (search_title)
     path('station_title/', views.station_title),         #產品搜尋      (Production_search)
-    path('restaurant_title/',views.restaurant_title)
+    path('restaurant_title/',views.restaurant_title),
+    path('production_search/',views.production_search)
 
 ]+ static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
